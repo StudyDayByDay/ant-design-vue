@@ -33,9 +33,17 @@ function isUnBorderedButtonType(type: ButtonType | undefined) {
 }
 export { buttonProps };
 export default defineComponent({
+  // 兼容vue2模式
+  /* 
+    0：完全不兼容。
+    1：部分兼容，允许一些 Vue 2 的特性。
+    2：更高的兼容性，允许更多的 Vue 2 特性。
+    3：最高兼容性，几乎所有 Vue 2 的特性都可以使用。
+  */
   compatConfig: { MODE: 3 },
   name: 'AButton',
   inheritAttrs: false,
+  // 自定义属性
   __ANT_BUTTON: true,
   props: initDefaultProps(buttonProps(), { type: 'default' }),
   slots: Object as CustomSlotsType<{
